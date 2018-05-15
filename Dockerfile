@@ -16,12 +16,12 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.org \
     && bundle install --jobs 4 --retry 5 --deployment --no-cache --without development test
 
-ENV PATH $HOME/.yarn/bin:$PATH
+# ENV PATH $HOME/.yarn/bin:$PATH
 # # Copy dependencies for Node.js and instance the packages.
 # # Again, being separate means this will cache for assets:precompile.
 # COPY package.json yarn.lock ./
 COPY package.json ./
-RUN yarn install
+RUN  $HOME/.yarn/bin/yarn install
 # RUN npm rebuild node-sass --force
 
 # Set Rails to run in production
