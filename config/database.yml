@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: yuanxin_admin_production
-  username: yuanxin_admin
-  password: <%= ENV['YUANXIN_ADMIN_DATABASE_PASSWORD'] %>
+  database: news
+  # username: yuanxin_admin
+  # password: <%= ENV['YUANXIN_ADMIN_DATABASE_PASSWORD'] %>
