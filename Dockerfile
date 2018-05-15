@@ -26,12 +26,15 @@ RUN  $HOME/.yarn/bin/yarn install
 
 # Set Rails to run in production
 ENV RAILS_ENV production
+ENV RAILS_SERVE_STATIC_FILES true
+ENV RAILS_LOG_TO_STDOUT true
+ENV RAILS_MASTER_KEY $RAILS_MASTER_KEY  # build args
 
 # Copy the main application.
 COPY . ./
 # Precompile Rails assets (plus Webpack)
 # We compile the assets. When running the rake task, DATABASE_URL is required and we pass a dummy value.
-RUN RAILS_MASTER_KEY=$RAILS_MASTER_KEY bundle exec rake DATABASE_URL=postgresql:does_not_exist assets:precompile
+RUN bundle exec rake DATABASE_URL=postgresql:does_not_exist assets:precompile
 
 VOLUME /app/public
 
