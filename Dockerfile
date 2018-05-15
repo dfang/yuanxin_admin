@@ -19,7 +19,8 @@ RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.org \
 ENV PATH /root/.yarn/bin:$PATH
 # # Copy dependencies for Node.js and instance the packages.
 # # Again, being separate means this will cache for assets:precompile.
-COPY package.json yarn.lock ./
+# COPY package.json yarn.lock ./
+COPY package.json ./
 RUN yarn install
 # RUN npm rebuild node-sass --force
 
