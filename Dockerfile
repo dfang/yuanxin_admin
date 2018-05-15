@@ -24,17 +24,22 @@ COPY package.json ./
 RUN  $HOME/.yarn/bin/yarn install
 # RUN npm rebuild node-sass --force
 
+ARG RAILS_MASTER_KEY
 # Set Rails to run in production
 ENV RAILS_ENV production
 ENV RAILS_SERVE_STATIC_FILES true
 ENV RAILS_LOG_TO_STDOUT true
-ENV RAILS_MASTER_KEY $RAILS_MASTER_KEY  # build args
+# ENV RAILS_MASTER_KEY ${RAILS_MASTER_KEY}  # build args
 
 # Copy the main application.
 COPY . ./
+
+RUN cat ~/.bashrc
+RUN . ~/.bashrc
 # Precompile Rails assets (plus Webpack)
 # We compile the assets. When running the rake task, DATABASE_URL is required and we pass a dummy value.
-RUN bundle exec rake DATABASE_URL=postgresql:does_not_exist assets:precompile
+# RUN RAILS_MASTER_KEY=609ced37432b8493776e9969bd0dae25 bundle exec rake DATABASE_URL=postgresql:does_not_exist assets:precompile
+RUN RAILS_MASTER_KEY=${RAILS_MASTER_KEY} bundle exec rake DATABASE_URL=postgresql:does_not_exist assets:precompile
 
 VOLUME /app/public
 
