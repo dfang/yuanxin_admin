@@ -1,4 +1,4 @@
-FROM ruby:2.5-slim-stretch
+FROM ruby:2.5.1-slim-stretch
 
 LABEL maintainer='df1228@gmail.com'
 
