@@ -24,6 +24,7 @@ default: &default
 development:
   <<: *default
   username: root
+  host: db
   database: news
 
   # The specified database role being used to connect to postgres.
