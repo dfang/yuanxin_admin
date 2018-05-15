@@ -31,7 +31,7 @@ ENV RAILS_ENV production
 COPY . ./
 # Precompile Rails assets (plus Webpack)
 # We compile the assets. When running the rake task, DATABASE_URL is required and we pass a dummy value.
-RUN bundle exec rake DATABASE_URL=postgresql:does_not_exist assets:precompile
+RUN RAILS_MASTER_KEY=$RAILS_MASTER_KEY bundle exec rake DATABASE_URL=postgresql:does_not_exist assets:precompile
 
 VOLUME /app/public
 
