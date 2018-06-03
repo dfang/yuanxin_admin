@@ -17,5 +17,24 @@ module Admin
 
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
     # for more information
+
+
+    def generate
+      # 随机生成100个邀请码
+      i = 0
+      while i < 100 do
+
+        rand = 6.times.map { rand(0..9) }.join
+        invitations = Invitation.where(invitation_code: rand)
+        unless invitations.any? 
+          invitation = Invitation.new(
+            invitation_code: rand,
+            has_activated: false
+          )
+          invitation.save!
+        end
+        i = i + 1         
+      end
+    end
   end
 end

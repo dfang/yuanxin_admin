@@ -7,7 +7,10 @@ Rails.application.routes.draw do
     resources :buy_requests
     resources :comments
     resources :favorites
-    resources :invitations
+    resources :invitations do
+      post "generate", on: :collection
+    end
+
     resources :suggestions
     resources :authentications
     resources :likes
