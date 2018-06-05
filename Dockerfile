@@ -43,7 +43,8 @@ RUN RAILS_MASTER_KEY=${RAILS_MASTER_KEY} bundle exec rake DATABASE_URL=postgresq
 
 VOLUME /app/public
 
+EXPOSE 3000
+
 # CMD bundle exec puma -C config/puma.rb
 CMD ["rails", "server", "-b", "0.0.0.0"]
 
-EXPOSE 3000
