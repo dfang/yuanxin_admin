@@ -1,5 +1,7 @@
 module Admin
   class InvitationsController < Admin::ApplicationController
+    skip_before_filter :verify_authenticity_token, :only => [:generate]
+
     # To customize the behavior of this controller,
     # you can overwrite any of the RESTful actions. For example:
     #
