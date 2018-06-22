@@ -1,0 +1,6 @@
+<%- if field.image_url.present? %>
+  <%= link_to field.image_url, target: "_blank" do %>
+    <%= image_tag field.image_url, size: "200x200" %>
+  <% end %>
+<% end %>
+
