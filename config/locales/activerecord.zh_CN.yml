@@ -7,18 +7,8 @@ zh-CN:
         restrict_dependent_destroy:
           has_one: 由于 %{record} 需要此记录，所以无法移除记录
           has_many: 由于 %{record} 需要此记录，所以无法移除记录
-    models:
-      chip: 芯片
-      user: 用户
-      help_request: 求助
-      buy_request: 求购
-      comment: 评论
-      favorite: 收藏
-      invitation: 邀请码
-      suggestion: 投诉建议
-      authentication: 认证
-      like: 喜欢
     attributes:
+
       common: &common
         gender: 性别
         email: 邮箱
@@ -54,6 +44,18 @@ zh-CN:
         unit_price: 单价
         specification: 规格
         is_verified: 审核
+    models:
+      chip: 芯片
+      user: 用户
+      help_request: 求助
+      buy_request: 求购
+      comment: 评论
+      favorite: 收藏
+      invitation: 邀请码
+      suggestion: 投诉建议
+      authentication: 认证
+      like: 喜欢
+
 
 
 
