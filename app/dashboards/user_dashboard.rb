@@ -27,7 +27,7 @@ class UserDashboard < Administrate::BaseDashboard
     license: Field::String,
     expertise: Field::String,
     resume: Field::String,
-    role: CollectionSelectField.with_options(collection: [["卖家", 2],["专家", 3]] ),
+    role: CollectionSelectField.with_options(collection: [["普通", 1], ["卖家", 2],["专家", 3]] ),
     remark: Field::Text,
     is_verified: CollectionSelectField.with_options(collection: [["",""], ["否", false], ["是", true]]),
   }.freeze
